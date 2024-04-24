@@ -2,14 +2,27 @@
 
 # Importing Libraries
 from flask import Flask, render_template, request
-from BotDefinition import OpenAIBot
-
+import ollama
 # Creating the Flask App
 app = Flask(__name__)
 
-# Importing Bot Defination
-chatbot = OpenAIBot("gpt-4")
 
+def generate_response(prompt):
+    message = [
+        {
+            'role': 'system',
+            'content': 'You are a helpful assistant.',
+        },
+        {
+            'role': 'user',
+            'content': prompt
+        }
+    ]
+    response = ollama.chat(model='llama3', messages=message, stream=False)
+    # response = {'message': {'content': 'hi'}}
+    # response.headers.add('Access-Control-Allow-Origin', 'http://127.0.0.1:5500')
+    # extract_sql_string(response['message']['content'])
+    return response['message']['content']
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -24,7 +37,7 @@ def chat():
         return 'END CHAT'
 
     # Generate and Print the Response from ChatBot
-    response = chatbot.generate_response(prompt)
+    response = generate_response(prompt)
     return response
 
 if __name__ == '__main__':
