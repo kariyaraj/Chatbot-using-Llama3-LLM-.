@@ -7,7 +7,7 @@ This project implements a chatbot powered by the Local LLM (LLAMA3) model. LLAMA
 1. Clone the project repository:
 
     ```bash
-    git clone <repo>
+    git clone https://github.com/kariyaraj/Chatbot-using-Llama3-LLM-..git
     ```
 
 2. Install the required Python packages using pip:
@@ -21,7 +21,10 @@ This project implements a chatbot powered by the Local LLM (LLAMA3) model. LLAMA
 
 4. Install LLAMA3:
 
-    Open your terminal and run command : ollama run llama3.
+    Open your terminal and run command
+   ```bash
+   ollama run llama3
+   ```
    Wait for the completion .
 
 
@@ -50,6 +53,3 @@ This project implements a chatbot powered by the Local LLM (LLAMA3) model. LLAMA
 
 - This project utilizes the LLAMA3 model developed by OpenAI.
 - Special thanks to the developers and contributors of the ollama LLM project for making it available for local use.
-
-## License
-
